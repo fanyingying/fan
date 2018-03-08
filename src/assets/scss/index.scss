@@ -1,0 +1,41 @@
+@import 'public/mixin.scss';
+#canvas {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    background-color: #24292e;
+    .nav-box {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0px;
+    }
+    .el-menu {
+        border-bottom: none;
+    }
+    .header-logo{
+        width: 50px;
+    }
+}
+@media only screen and (min-width: 737px) {
+    
+}
+@media only screen and (min-width: 1024px) and (max-width:1280px){
+
+}
+@media only screen and (min-width: 737px) and (max-width:1023px){
+
+}
+@media only screen and (min-width: 415px) and (max-width:736px){
+
+}
+@media only screen and (max-width: 414px) {
+
+}
+

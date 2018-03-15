@@ -109,6 +109,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      //视图加载完成后执行
       this.getIssues();
     });
   }

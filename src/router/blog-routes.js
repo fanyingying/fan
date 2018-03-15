@@ -1,13 +1,14 @@
 export default [
+  // {
+  //   path: '',
+  //   redirect: {
+  //     name: 'BlogList'
+  //   }
+  // },
   {
     path: '',
-    redirect: {
-      name: 'BlogList'
-    }
-  },
-  {
-    path: 'BlogList',
     name: 'BlogList',
+    alias:'BlogList',
     component: resolve => require(['@/views/BlogList.vue'], resolve)
   },
   {

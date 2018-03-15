@@ -1,10 +1,11 @@
 'use strict'
+const glob = require('glob')
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -19,11 +20,16 @@ const createLintingRule = () => ({
   }
 })
 
+
+
+
+
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry: {
-    app: './src/main.js'
-  },
+  // entry: {
+  //   app: './src/main.js'
+  // },
+  entry:utils.entries(),
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
@@ -110,3 +116,21 @@ module.exports = {
     child_process: 'empty'
   }
 }
+
+
+////多入口处理//////
+// const getEntry = (globPath) => {
+//   var entries = {},
+//     basename, tmp, pathname;
+//   glob.sync(globPath).forEach(function (entry) {
+//     basename = path.basename(entry, path.extname(entry));
+//     pathname = basename.split("_")[0];
+//     entries[pathname] = entry;
+//   });
+//   console.log(entries);
+//   return entries;
+// }
+// const entries = getEntry('./src/pages/**/*.js')
+//module.exports.entry = utils.entries();
+
+////多入口处理//////

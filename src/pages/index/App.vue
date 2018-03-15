@@ -17,7 +17,7 @@
 
 
 <script>
-import LeftLayout from "./components/LeftLayout.vue";
+import LeftLayout from "@/components/LeftLayout.vue";
 
 export default {
   name: "App",
@@ -38,8 +38,6 @@ export default {
 </script>
 
 <style lang = "scss">
-@import "./assets/scss/index.scss";
-
 body {
   margin: 0px;
 }

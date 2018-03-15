@@ -1,5 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+//Moonlightg
 import Vue from 'vue'
 import axios from 'axios'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -21,11 +22,11 @@ import 'github-markdown-css/github-markdown.css'
 
 
 import App from './App'
-import store from './store'
-import router from './router'
-import './assets/scss/app-base.scss'
+import store from '@/store'
+import router from '@/router'
+import '@/assets/scss/app-base.scss'
 
-import { gitHubApi, isGetUserInfo, queryParse, queryStringify } from './utils'
+import { gitHubApi, isGetUserInfo, queryParse, queryStringify } from '@/utils'
 
 
 Vue.config.productionTip = false
@@ -59,10 +60,12 @@ Vue.prototype.$marked = marked
 const vm = new Vue({
   el: '#app',
   router,
-  store,
+  store,// 把 store 对象提供给 “store” 选项，这可以把 store 的实例注入所有的子组件
   components: { App },
   template: '<App/>'
 })
+
+
 let loadingInstance
 
 // request拦截器

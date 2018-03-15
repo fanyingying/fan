@@ -1,4 +1,5 @@
 'use strict'
+const glob = require('glob')
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
@@ -52,11 +53,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index.html',
-      inject: true
-    }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'index.html',
+    //   template: 'index.html',
+    //   inject: true
+    // }),
     // copy custom static assets
     new CopyWebpackPlugin([
       {
@@ -65,8 +66,31 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ])
-  ]
+  ].concat(utils.htmlPlugin())
 })
+
+
+////多入口处理//////
+// function getEntry(globPath) {
+//   var entries = {}, basename;
+//   glob.sync(globPath).forEach(function (entry) {
+//     basename = path.basename(entry, path.extname(entry));
+//     entries[basename] = entry;
+//   }); 
+//   return entries;
+// }
+// var pages = getEntry('./src/pages/**/*.html');
+// for (var pathname in pages) {
+//   // 配置生成的html文件，定义路径等 
+//   var conf = {
+//     filename: pathname + '.html', template: pages[pathname], // 模板路径
+//     inject: true, // js插入位置 
+//     chunks: [pathname]
+//   };
+//   devWebpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
+// }
+////多入口处理//////
+
 
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port
@@ -85,11 +109,15 @@ module.exports = new Promise((resolve, reject) => {
           messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
         },
         onErrors: config.dev.notifyOnErrors
-        ? utils.createNotifierCallback()
-        : undefined
+          ? utils.createNotifierCallback()
+          : undefined
       }))
 
       resolve(devWebpackConfig)
     }
   })
 })
+
+
+
+

@@ -1,9 +1,15 @@
 import blogRoutes from './blog-routes'
+//import exampleRoutes from './example-routes'
 
 /**
  * 路由表配置
  */
 export default [
+  // {
+  //   path: '/example',
+  //   component: resolve => require.ensure([], () => resolve(require('@/views/Example.vue')), 'Example'),
+  //   children: exampleRoutes
+  // },
   {
     name: 'AboutMe',
     path: '/AboutMe',
@@ -15,12 +21,13 @@ export default [
     component: resolve => require.ensure([], () => resolve(require('@/views/WebNav.vue')), 'WebNav')
   },
   {
-    path: '/Blog',
+    path: '/',
     component: resolve => require.ensure([], () => resolve(require('@/views/Blog.vue')), 'Blog'),
-    children: blogRoutes
+    children: blogRoutes,
+    alias:'/Blog'
   },
-  {
-    path: '*',
-    redirect: '/Blog'
-  }
+  // {
+  //   path: '/',
+  //   redirect: '/Blog'
+  // }
 ]

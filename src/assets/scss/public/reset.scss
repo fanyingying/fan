@@ -15,5 +15,5 @@ blockquote:before, blockquote:after,q:before, q:after {content:"";content: none;
 a { 
     color:#000; text-decoration:none;cursor: pointer;
     &:link,&:visited, &:active{color: #000;}
-    &:hover, &:focus {color:#f60; text-decoration:underline;outline:none;}
+    &:hover, &:focus {color:#f60; text-decoration:none;outline:none;}
 }

@@ -1,5 +1,5 @@
 import blogRoutes from './blog-routes'
-//import exampleRoutes from './example-routes'
+// import exampleRoutes from './example-routes'
 
 /**
  * 路由表配置
@@ -7,7 +7,7 @@ import blogRoutes from './blog-routes'
 export default [
   // {
   //   path: '/example',
-  //   component: resolve => require.ensure([], () => resolve(require('@/views/Example.vue')), 'Example'),
+  //   component: resolve => require.ensure([], () => resolve(require('@/views/examples/ExampleList.vue')), 'ExampleList'),
   //   children: exampleRoutes
   // },
   {

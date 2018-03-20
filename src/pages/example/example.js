@@ -3,39 +3,42 @@
 //Moonlightg
 import Vue from 'vue'
 import axios from 'axios'
+
+
 import 'element-ui/lib/theme-chalk/index.css'
 import ElementUI from 'element-ui'
 Vue.use(ElementUI)
 
+// import {Tabs, Container, Row, Col, TabPane} from 'element-ui'
+// Vue.use(Tabs)
+// Vue.use(Row)
+// Vue.use(Col)
+// Vue.use(TabPane)
 
-import moment from 'moment'
-moment.locale('zh-cn')
-Vue.prototype.$moment = moment
-import 'github-markdown-css/github-markdown.css'
-
-
+// import VueLazyload from 'vue-lazyload'
+// Vue.use(VueLazyload)
+// // or with options
+// Vue.use(VueLazyload, {
+//   preLoad: 1.3,
+//   error: 'dist/error.png',
+//   loading: 'dist/loading.gif',
+//   attempt: 1
+// })
 
 
 import App from './App'
-import router from '@/router'
-import '@/assets/scss/app-base.scss'
-
-import { gitHubApi, isGetUserInfo, queryParse, queryStringify } from '@/utils'
+import router from '@/router/example-routes.js'
+import '@/assets/scss/example-base.scss'
 
 
 Vue.config.productionTip = false
 
-
-
 Vue.prototype.$http = axios
-Vue.prototype.$gitHubApi = gitHubApi
-Vue.prototype.$isGetUserInfo = isGetUserInfo
-Vue.prototype.$queryParse = queryParse
-Vue.prototype.$queryStringify = queryStringify
 
-
-
-
+router.beforeEach((to, from, next) => {
+  window.document.title = to.meta.title;
+  next()
+})
 
 /* eslint-disable no-new */
 const vm = new Vue({

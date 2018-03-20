@@ -81,26 +81,6 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
-      // {
-      //   test: /\.scss$/,
-      //   loaders: ["style", "css", "sass"]
-      // },
-      // {
-      //   test: /\.scss$/,
-      //   use: [
-      //     'style-loader',
-      //     'css-loader',
-      //     'postcss-loader',
-      //     'sass-loader',
-      //     {
-      //       loader: 'sass-resources-loader',
-      //       options: {
-      //         // Or array of paths
-      //         resources: ['test.scss','src/assets/scss/public/*.scss']
-      //       },
-      //     },
-      //   ],
-      // },
     ]
   },
   node: {
@@ -114,23 +94,11 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
+  },
+  externals:{
+    vue: 'Vue',
+    'element-ui': 'ELEMENT',
+    moment:'moment',
+    
   }
 }
-
-
-////多入口处理//////
-// const getEntry = (globPath) => {
-//   var entries = {},
-//     basename, tmp, pathname;
-//   glob.sync(globPath).forEach(function (entry) {
-//     basename = path.basename(entry, path.extname(entry));
-//     pathname = basename.split("_")[0];
-//     entries[pathname] = entry;
-//   });
-//   console.log(entries);
-//   return entries;
-// }
-// const entries = getEntry('./src/pages/**/*.js')
-//module.exports.entry = utils.entries();
-
-////多入口处理//////

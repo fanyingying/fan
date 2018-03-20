@@ -70,28 +70,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 })
 
 
-////多入口处理//////
-// function getEntry(globPath) {
-//   var entries = {}, basename;
-//   glob.sync(globPath).forEach(function (entry) {
-//     basename = path.basename(entry, path.extname(entry));
-//     entries[basename] = entry;
-//   }); 
-//   return entries;
-// }
-// var pages = getEntry('./src/pages/**/*.html');
-// for (var pathname in pages) {
-//   // 配置生成的html文件，定义路径等 
-//   var conf = {
-//     filename: pathname + '.html', template: pages[pathname], // 模板路径
-//     inject: true, // js插入位置 
-//     chunks: [pathname]
-//   };
-//   devWebpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
-// }
-////多入口处理//////
-
-
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port
   portfinder.getPort((err, port) => {

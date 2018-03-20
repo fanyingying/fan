@@ -34,7 +34,7 @@ export default {
 </script>
 <style lang="scss">
 .maruko-box{
-  background-image: url('../../assets/img/example/Layer.png');
+  // background-image: url('../../assets/img/example/Layer.png');
   background-position: 0px -323px;
   width: 778px;
   height: 600px;

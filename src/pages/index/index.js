@@ -5,7 +5,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import 'element-ui/lib/theme-chalk/index.css'
 import ElementUI from 'element-ui'
-Vue.use(ElementUI)
+//Vue.use(ElementUI)
 
 
 // import BgaBackTop from 'bga-back-top-vue'
@@ -13,6 +13,7 @@ Vue.use(ElementUI)
 import marked from 'marked'
 import moment from 'moment'
 moment.locale('zh-cn')
+
 Vue.prototype.$moment = moment
 // import highlight from 'highlight.js'
 //import 'highlight.js/styles/github.css'

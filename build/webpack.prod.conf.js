@@ -39,6 +39,9 @@ const webpackConfig = merge(baseWebpackConfig, {
       uglifyOptions: {
         compress: {
           warnings: false
+        },
+        output: {
+          comments: false,//去掉注释
         }
       },
       sourceMap: config.build.productionSourceMap,
@@ -146,31 +149,4 @@ if (config.build.bundleAnalyzerReport) {
   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
-
-
-
-////多入口处理//////
-// function getEntry(globPath) {
-//   var entries = {}, basename;
-//   glob.sync(globPath).forEach(function (entry) {
-//     basename = path.basename(entry, path.extname(entry));
-//     entries[basename] = entry;
-//   });
-//   return entries;
-// }
-// var pages = getEntry('./src/pages/**/*.html');
-// for (var pathname in pages) {
-//   var conf = {
-//     filename: process.env.NODE_ENV === 'testing' ? pathname + '.html' : config.build[pathname],
-//     template: pages[pathname],
-//     inject: true,
-//     minify: {
-//       removeComments: true, collapseWhitespace: true, removeAttributeQuotes: true
-//     }, chunks: [pathname]
-//   }
-//   webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
-// }
-////多入口处理//////
-
-
 module.exports = webpackConfig

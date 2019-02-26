@@ -1,13 +1,13 @@
 <template>
   <div class="app">
-    <el-container>
-      <el-aside class="left-container">
+    <!-- <el-container> -->
+      <!-- <el-aside class="left-container"> -->
         <LeftLayout />
-      </el-aside>
-      <el-main>
+      <!-- </el-aside> -->
+      <!-- <el-main> -->
         <router-view class="main-container" />
-      </el-main>
-    </el-container>
+      <!-- </el-main> -->
+    <!-- </el-container> -->
 
     <!-- <bga-back-top :svgMajorColor="'#7b79e5'" :bottom="90" :right="5" :svgMinorColor="'#ba6fda'" :svgType="'rocket_smoke'" /> -->
   </div>

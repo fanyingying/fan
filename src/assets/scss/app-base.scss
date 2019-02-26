@@ -12,4 +12,19 @@
 
 @import "public/bloglist.scss";
 
+.el-header{
+    padding: 0px;
+}
+.el-main{
+    padding: 0px;
+}
+.el-aside{
+    width: initial!important;
+}
+.left-menu li{
+    &.pc{
+        display: none;
+    }
+}
+
   

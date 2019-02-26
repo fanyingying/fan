@@ -1,6 +1,6 @@
 <template>
   <!-- 最外层套一层 div 避免 gitHubUser 还未加载完时，右侧占满整个浏览器 -->
-  <div>
+  <div class="left-container">
     <div class="left-layout-container pc">
       <div class="user-info">
         <img v-if="gitHubUser" @click="home" :src="gitHubUser.avatar_url">
@@ -13,7 +13,7 @@
         </li>
       </ul> -->
       <ul class="left-menu">
-        <router-link :class="isBlog ? 'selected-menu':''" tag="li" :to="{name: 'BlogList'}">
+        <router-link :class="isBlog ? 'selected-menu':''" tag="li" :to="{name: 'BlogList'}" >
           个人笔记
         </router-link>
         <router-link :class="isWebNav ? 'selected-menu':''" tag="li" :to="{name: 'WebNav'}">
@@ -33,18 +33,18 @@
       <nav>
         <!--左侧图标-->
         <a class="return" @click="show = !show">
-          <i class="icon-directory" />
+          <i class="el-icon-more" />
         </a>
         <!--标题-->
         <h1 class="nav_title">
-          <p>个人笔记</p>
+          <p>个人博客</p>
         </h1>
         <!--右侧图标-->
-        <!--           <div class="nav_r">
+        <div class="nav_r">
             <a href="javascript:;">
               <i class="icon-search" />
             </a>
-          </div> -->
+          </div>
       </nav>
     </div>
     <div class="left-user">
@@ -60,13 +60,10 @@
             </li>
           </ul>
           <ul class="left-menu">
-            <router-link :class="isBlog ? 'selected-menu':''" tag="li" :to="{name: 'BlogList'}">
+            <router-link :class="isBlog ? 'selected-menu':''" tag="li" :to="{name: 'BlogList'}" @click.native="show = !show">
               <span>个人笔记</span>
             </router-link>
-            <router-link :class="isWebNav ? 'selected-menu':''" tag="li" :to="{name: 'WebNav'}">
-              <span>前端导航</span>
-            </router-link>
-            <router-link :class="isAboutMe ? 'selected-menu':''" tag="li" :to="{name: 'AboutMe'}">
+            <router-link :class="isAboutMe ? 'selected-menu':''" tag="li" :to="{name: 'AboutMe'}" @click.native="show = !show">
               <span>关于我</span>
             </router-link>
           </ul>
